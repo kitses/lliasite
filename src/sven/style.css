@@ -1,0 +1,79 @@
+/* was originally going to use input mono. but it has asshole licensing so nothx ^-^ */
+
+@import url(fonts/style.css);
+
+body {
+  margin: 0;
+  font-size: 14px;
+  font-family: Monaspace Neon, monospace;
+}
+
+/* navbar */
+
+nav {
+  background: #000;
+  color: #fff;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  gap: 4px
+}
+
+.emblem {
+  background: #72dec2;
+  color: #000;
+  width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  overflow: hidden;
+  height: 100%;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: -2px;
+}
+
+a:not(nav a) {
+  color: #000
+}
+
+/* main content */
+
+p {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0 0 8px
+}
+
+main {
+  padding: 12px;
+  max-width: 750px;
+  box-sizing: border-box
+}
+
+img {
+  max-width: 100%;
+  height: auto
+}
+
+/* tooltip */
+
+.tooltip {
+  position: absolute;
+  display: none;
+  padding: 4px;
+  background: #000;
+  color: #fff;
+  opacity: 0.75;
+  font-size: 8px;
+  z-index: 100
+}

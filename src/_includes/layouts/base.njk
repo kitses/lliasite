@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <title>{% if title %}llia's site : {{ title }}{% else %}llia's site{% endif %}</title>
+  <link href="/assets/css/style.css" rel="stylesheet">
+  {% if extraStyles %}
+  <style>{{ extraStyles | safe }}</style>
+  {% endif %}
+</head>
+
+<body {% if customBackground %}style="background:url(/assets/images/{{ customBackground }})"{% endif %}>
+  {% include "partials/navbar.njk" %}
+  
+  {% if page.url == "/404.html" %}
+    {{ content | safe }}
+  {% else %}
+    <div class="motherfuckingMainContainer">
+      {{ content | safe }}
+    </div>
+  {% endif %}
+
+  {% if page.url == "/about/" %}
+    <script src="/assets/js/about.js"></script>
+  {% endif %}
+</body>
+</html>

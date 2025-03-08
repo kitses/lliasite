@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+title: system
+customBackground: "noise256.png),radial-gradient(#222,#111"
+---
+
+<main>
+  <div class="anotherFuckingDiv">
+    <h1>system</h1>
+    <p><small>FYI: <b>llia is a singularity</b>.
+        this directory only lists system members who have made a page and want to make it public.
+        these pages are under the same license as this site, and sites listed here will refer to this site as
+        "upstream". the 404 pages on these sites will be broken because i can't find out a way on how to fix it.
+        these sites can and will get less updated than this one.
+      </small></p>
+      <div class="codeblock">
+        <span><a href="https://www.astraeasweb.net/plural/code/frames.html">MuC</a> N-^ [m;m/f/a/*] S.Mfh*+/Mmf*~"zangoose"*/Bc?/A?*+/"glaceon"{*}+/"alolan meowth"* A(b- r-/ ) On/c W# Cc I---# OF(r--- o+) #- Fs"modern"+ (T) Xa Ju Do R--- C++ So-</span>
+      </div>
+    <hr>
+    <p>
+      {% for member in systemMembers %}
+        <a href="{{ member.url }}">
+          {{ member.displayName }}{% if not loop.last %}.{% endif %}
+        </a>
+      {% endfor %}
+    </p>
+  </div>
+</main>

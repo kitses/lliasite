@@ -1,0 +1,14 @@
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+<main>
+  {% if headerImage %}
+  <img alt="{{ headerImageAlt }}" src="/assets/images/{{ headerImage }}">
+  {% endif %}
+  
+  <div class="anotherFuckingDiv">
+    {{ content | safe }}
+  </div>
+</main>
+{% endblock %}
+

@@ -1,0 +1,42 @@
+[
+  {
+    "type": "notice",
+    "prefix": "2nd",
+    "date": "mar3/25",
+    "content": [
+      "this site has now been migrated from rawdogging shit to <a href=\"https://www.11ty.dev\">11ty</a>! which is good. but now my site preview is broken, so that sucks. bleh."
+    ]
+  },
+  {
+    "type": "opus",
+    "date": "jan22/25",
+    "content": [
+      "<a href=\"/assets/audio/egggggg.opus\">iglooghost - 𓆇☼ remix</a>. titled \"sun is an egg #Freaky4Nosferatu @llia\""
+    ],
+    "first": true
+  },
+  {
+    "type": "opus",
+    "date": "dec1/24",
+    "content": [
+      "<a href=\"/assets/audio/gjering.opus\">this can be considered music</a> but i don't wanna"
+    ]
+  },
+  {
+    "type": "opus",
+    "date": "nov27/24",
+    "content": [
+      "okay, because i like it too much, <a href=\"/assets/audio/supine.opus\">here it is for the site</a>. title is \"my supine position bitch\". practically unfinished, no rights reserved, originally uploaded on oct26/24. kthxbai"
+    ]
+  },
+  {
+    "type": "notice",
+    "prefix": "1st",
+    "date": "nov19/24",
+    "content": [
+      "new site layout. made it in 1 day because the old one was a genuine fucking nightmare to work with.",
+      "i'm not going to restore any of the old notices i've made on here, due to the fact that whenever i looked at them i want to just delete the entire fucking site. bleh",
+      "an archive of the previous layout may be put up, but that's currently up in the air."
+    ]
+  }
+]

@@ -1,0 +1,46 @@
+---
+layout: layouts/base.njk
+title: archive
+customBackground: "noise256.png),radial-gradient(#222,#111"
+permalink: /archive/
+---
+
+{% macro renderPost(post) -%}
+  {% if post.type == "opus" %}
+    {% if post.first %}
+      <h1 id="notice">
+        <mono>audio/opus</mono> :: {{ post.date }}
+      </h1>
+      <hr>
+    {% else %}
+      <h1 id="addendum">
+        <mono>audio/opus</mono> :: {{ post.date }}
+      </h1>
+    {% endif %}
+    {% for para in post.content %}
+      <p>{{ para | safe }}</p>
+    {% endfor %}
+  {% elseif post.type == "notice" %}
+    <h1 id="notice">
+      <mono>{{ post.prefix }}</mono>notice :: {{ post.date }}
+    </h1>
+    <hr>
+    {% for para in post.content %}
+      <p>{{ para | safe }}</p>
+    {% endfor %}
+  {% endif %}
+{%- endmacro %}
+
+<main>
+  <div class="anotherFuckingDiv">
+    <p class="goback">
+      <a href="/">&mldr;back</a>
+    </p>
+    {% for post in notices %}
+      {% if loop.index > 8 %}
+        {{ renderPost(post) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+  <img src="/assets/images/boid.png" alt="boid" id="boid">
+</main>

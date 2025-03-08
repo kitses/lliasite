@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>escoria's site</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    const imagesToPreload = ['repubEscoriaTransparentInvertedEyesClosed.png', 'repubEscoriaTransparentInvertedClosedHard'];
+    imagesToPreload.forEach((src) => {const img = new Image(); img.src = src;});
+  </script>
+</head>
+
+<body>
+  <div id="navlet">
+    <div class="blag">
+      <p class="blagtitle">
+        escoria's site
+      </p>
+      <p><b>main</b></p>
+      <p><a href="index.html">index</a></p>
+      <p><a href="about.html">about</a></p>
+    </div>
+    <div class="blag">
+      <p><b>other</b></p>
+      <p><a href="../index.html">upstream</a></p>
+    </div>
+    <img class="navletImage" src="repubEscoriaTransparentInverted.png"
+      alt="government-type seal saying 'REPUBLIC OF ESCORIA, NEVER A DAY FORGOTTON' with a polygonal lasso-tooled simple cat head in the centered, blinks when hovered over">
+  </div>
+  <div class="imgcontainerCredit">
+    <span class="credit">
+      <a href="https://www.flickr.com/photos/ddreier/5190441261/">
+        image: https://www.flickr.com/photos/ddreier/5190441261/
+      </a>
+    </span>
+    <img id="imgheader" src="header/catlampSmallr.jpg" alt="orange cat looking at a quite frozen lava lamp">
+  </div>
+  <div id="placeholder">
+    <span class="xlarge"></span>
+    <br>
+    <span>it's barren here currently. check back whenever.</span>
+  </div>
+</body>
+
+</html>
