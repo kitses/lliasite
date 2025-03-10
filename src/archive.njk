@@ -8,12 +8,12 @@ permalink: /archive/
 {% macro renderPost(post) -%}
   {% if post.type == "opus" %}
     {% if post.first %}
-      <h1 id="notice">
+      <h1 class="notice">
         <mono>audio/opus</mono> :: {{ post.date }}
       </h1>
       <hr>
     {% else %}
-      <h1 id="addendum">
+      <h1 class="addendum">
         <mono>audio/opus</mono> :: {{ post.date }}
       </h1>
     {% endif %}
@@ -21,7 +21,7 @@ permalink: /archive/
       <p>{{ para | safe }}</p>
     {% endfor %}
   {% elseif post.type == "notice" %}
-    <h1 id="notice">
+    <h1 class="notice">
       <mono>{{ post.prefix }}</mono>notice :: {{ post.date }}
     </h1>
     <hr>
