@@ -8,6 +8,11 @@
   src: url(/assets/fonts/GeistMonoVariableVF.woff2) format('woff2');
 }
 
+::selection {
+  background: #8f869d;
+  color: #000
+}
+
 #pmdicon.pmdabouthover:hover {
   content: url(/assets/images/pmdicon/alolanmeowthhappy.png);
 }
