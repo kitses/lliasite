@@ -1,5 +1,13 @@
 [
   {
+    "type": "opus",
+    "date": "mar25/25",
+    "content": [
+      "<a href=\"/assets/audio/redhotcar.opus\">my red hot car #SexualIntercourse @llia</a>. hot new squarepusher remix. eventually i will have to make a dedicated audio page -_-"
+    ],
+    "first": true
+  },
+  {
     "type": "notice",
     "prefix": "2nd",
     "date": "mar3/25",
@@ -14,13 +22,6 @@
       "<a href=\"/assets/audio/egggggg.opus\">iglooghost - 𓆇☼ remix</a>. titled \"sun is an egg #Freaky4Nosferatu @llia\""
     ],
     "first": true
-  },
-  {
-    "type": "opus",
-    "date": "dec1/24",
-    "content": [
-      "<a href=\"/assets/audio/gjering.opus\">this can be considered music</a> but i don't wanna"
-    ]
   },
   {
     "type": "opus",
