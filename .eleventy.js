@@ -38,11 +38,27 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.on("afterBuild", () => {
     const outputDir = "_site";
 
+    function removeIgnoredDirectories(dir) {
+      fs.readdirSync(dir).forEach((file) => {
+        const filePath = path.join(dir, file);
+        const stat = fs.statSync(filePath);
+        if (stat.isDirectory()) {
+          if (file === "_unused" || file === "_unbuilt") {
+            console.log(`Removing ignored directory: ${filePath}`);
+            fs.rmSync(filePath, { recursive: true, force: true });
+          } else {
+            removeIgnoredDirectories(filePath);
+          }
+        }
+      });
+    }
+
+    removeIgnoredDirectories(outputDir);
+
     function traverseDirectory(dir) {
       fs.readdirSync(dir).forEach((file) => {
         const filePath = path.join(dir, file);
         const stat = fs.statSync(filePath);
-
         if (stat.isDirectory()) {
           traverseDirectory(filePath);
         } else if (filePath.endsWith(".css")) {
@@ -60,7 +76,6 @@ module.exports = function (eleventyConfig) {
         }
       });
     }
-
     traverseDirectory(outputDir);
   });
 
