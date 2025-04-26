@@ -1,1 +1,123 @@
-hr{border:none;background-color:var(--black);height:1px}body{margin:0;background:var(--b1);font-family:Fira Sans, sans-serif;font-size:14px;min-height:100vh;display:flex;flex-direction:column;color:var(--black)}.pmdportrait{position:relative;float:left;margin:0 1ch 0.5ch 0;border:#000 1px solid;image-rendering:pixelated}.directoryCont{margin:2px 0;display:flex}.directorySegment{display:flex;flex-direction:column}.content{padding:0 4px;margin-left:11px;border-left:var(--sc) 1px solid;flex:1 1}a{color:var(--black);text-decoration:none}h1{margin:2px 0;font-size:20px}.content a{text-decoration:underline dotted}.content a:hover{background:var(--link)}.funkBar1{padding-left:18px;border-bottom:var(--black) 2px solid}.fbar2sq{padding-right:6px;border-left:var(--s1) 12px solid}.actBarCont{background:var(--b2);display:flex}.actBar{padding-left:6px;border-bottom:var(--s1) 1px solid;width:100%}.abarsq{width:99px;max-width:8px;border:var(--s1) 2px solid;background:var(--b2);max-height:0.8lh}.just4hover:hover .abarsq{background:var(--s2)}.just4hover,[class*=contentCont]{display:flex;flex-direction:column;flex:1 1}.contentContCont{flex-direction:row}[class^=funkBar]{background:var(--b2);border-bottom:var(--black) 2px solid}.content p{margin:2px 0;max-width:95ch}:root{--b1:#ffffea;--b2:#eaffff;--s1:#88c;--s2:#009;--sc:#99994c;--link:#eeee9e;--black:#000}
+:root {
+  --b1: #ffffea;
+  --b2: #eaffff;
+  --s1: #88c;
+  --s2: #009;
+  --sc: #99994c;
+  --link: #eeee9e;
+  --black: #000
+}
+
+br {
+  border: none;
+  background-color: var(--black);
+  height: 1px
+}
+
+body {
+  margin: 0;
+  background: var(--b1);
+  font-family: Fira Sans, sans-serif;
+  font-size: 14px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--black)
+}
+
+.pmdportrait {
+  position: relative;
+  float: left;
+  margin: 0 1ch 0.5ch 0;
+  border: #000 1px solid;
+  image-rendering: pixelated
+}
+
+.directoryCont {
+  margin: 2px 0;
+  display: flex
+}
+
+.directorySegment {
+  display: flex;
+  flex-direction: column
+}
+
+.content {
+  padding: 0 4px;
+  margin-left: 11px;
+  border-left: var(--sc) 1px solid;
+  flex: 1 1;
+
+  a {
+    text-decoration: underline dotted
+  }
+
+  a:hover {
+    background: var(--link)
+  }
+}
+
+a {
+  color: var(--black);
+  text-decoration: none
+}
+
+h1 {
+  margin: 2px 0;
+  font-size: 20px
+}
+
+.funkBar1 {
+  padding-left: 18px;
+  border-bottom: var(--black) 2px solid
+}
+
+.fbar2sq {
+  padding-right: 6px;
+  border-left: var(--s1) 12px solid
+}
+
+.actBarCont {
+  background: var(--b2);
+  display: flex
+}
+
+.actBar {
+  padding-left: 6px;
+  border-bottom: var(--s1) 1px solid;
+  width: 100%
+}
+
+.abarsq {
+  width: 99px;
+  max-width: 8px;
+  border: var(--s1) 2px solid;
+  background: var(--b2);
+  max-height: 0.8lh
+}
+
+.just4hover:hover .abarsq {
+  background: var(--s2)
+}
+
+.just4hover,
+[class*=contentCont] {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1
+}
+
+.contentContCont {
+  flex-direction: row
+}
+
+[class^=funkBar] {
+  background: var(--b2);
+  border-bottom: var(--black) 2px solid
+}
+
+.content p {
+  margin: 2px 0;
+  max-width: 95ch
+}
