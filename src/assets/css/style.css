@@ -76,6 +76,7 @@ body {
   background: url(/assets/images/bg.png);
   background-position: center center !important;
   background-attachment: fixed !important;
+  background-repeat: repeat-y !important;
   text-shadow: 0 1px 3px rgb(0 0 0 / .5);
 }
 
