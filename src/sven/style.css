@@ -17,7 +17,13 @@ nav {
   display: flex;
   align-items: center;
   font-size: 10px;
-  gap: 5px
+  gap: 5px;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: -2px;
+  }
 }
 
 .emblem {
@@ -30,12 +36,6 @@ nav {
   font-size: 12px;
   overflow: hidden;
   height: 100%;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-bottom: -2px;
 }
 
 a:not(nav a) {
