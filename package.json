@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "bun run -b rimraf ./_site && bun run -b ./node_modules/@11ty/eleventy/cmd.cjs --serve",
+    "build": "bun run -b rimraf ./_site && bun run -b ./node_modules/@11ty/eleventy/cmd.cjs"
   },
   "keywords": [],
   "author": "",
@@ -11,7 +12,8 @@
   "description": "",
   "dependencies": {
     "@11ty/eleventy": "^3.1.0",
-    "esbuild": "^0.25.4"
+    "esbuild": "^0.25.4",
+    "rimraf": "^6.0.1"
   },
   "devDependencies": {
     "html-minifier-terser": "^7.2.0"
