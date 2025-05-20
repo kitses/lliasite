@@ -10,8 +10,8 @@
   "license": "CC0-1.0",
   "description": "",
   "dependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "esbuild": "^0.25.1"
+    "@11ty/eleventy": "^3.1.0",
+    "esbuild": "^0.25.4"
   },
   "devDependencies": {
     "html-minifier-terser": "^7.2.0"
