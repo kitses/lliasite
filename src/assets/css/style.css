@@ -305,3 +305,25 @@ p a,
   justify-content: center;
   margin: 12px 0 0;
 }
+
+#legalimage {
+  display: flex;
+  justify-content: center;
+}
+
+/* because mobile. at the bottom for shame reasons. */
+
+@media (max-width: 655px) {
+  .motherfuckingMainContainer {
+    flex-direction: column-reverse;
+  }
+
+  main,
+  othershit {
+    width: unset
+  }
+
+  #legalimage {
+    background: #000;
+  }
+}
