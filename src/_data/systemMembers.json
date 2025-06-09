@@ -1,7 +1,8 @@
 [
   {
     "url": "/escoriasite/index.html",
-    "displayName": "escoria"
+    "displayName": "escoria",
+    "dormant": true
   },
   {
     "url": "/pazzy/index.html",
@@ -13,7 +14,8 @@
   },
   {
     "url": "https://fsen.neocities.org/",
-    "displayName": "dphen"
+    "displayName": "dphen",
+    "dormant": true
   },
   {
     "url": "/ivy/index.html",
