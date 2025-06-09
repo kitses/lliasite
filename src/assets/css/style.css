@@ -313,7 +313,7 @@ p a,
 
 /* because mobile. at the bottom for shame reasons. */
 
-@media (max-width: 655px) {
+@media (max-width: 640px) {
   .motherfuckingMainContainer {
     flex-direction: column-reverse;
   }
