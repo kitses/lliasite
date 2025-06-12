@@ -11,8 +11,8 @@
   "license": "CC0-1.0",
   "description": "",
   "dependencies": {
-    "@11ty/eleventy": "^3.1.0",
-    "esbuild": "^0.25.4",
+    "@11ty/eleventy": "^3.1.1",
+    "esbuild": "^0.25.5",
     "rimraf": "^6.0.1"
   },
   "devDependencies": {
