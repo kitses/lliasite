@@ -1,82 +1,75 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require("fs/promises");
+const fastGlob = require("fast-glob");
+const htmlmin = require("html-minifier-terser").minify;
+const esbuild = require("esbuild");
 
-module.exports = function (eleventyConfig) {
-  const assetsToPass = [
-    "src/assets/css",
-    "src/assets/fonts",
-    "src/assets/images",
-    "src/assets/audio",
-    "src/assets/js",
-    "src/escoriasite",
-    "src/pazzy",
-    "src/aspen",
-    "src/ivy",
-    "src/sven"
-  ];
+const assetsToPass = [
+  "src/assets/css",
+  "src/assets/fonts",
+  "src/assets/images",
+  "src/assets/audio",
+  "src/assets/js",
+  "src/escoriasite",
+  "src/pazzy",
+  "src/aspen",
+  "src/ivy",
+  "src/sven",
+];
 
-  assetsToPass.forEach((dir) => {
-    eleventyConfig.addPassthroughCopy(dir);
-  });
+module.exports = (eleventyConfig) => {
+  assetsToPass.forEach((dir) => eleventyConfig.addPassthroughCopy(dir));
 
-  eleventyConfig.addTransform("htmlmin", async function (content, outputPath) {
-    if (outputPath && outputPath.endsWith(".html")) {
-      try {
-        return await require("html-minifier-terser").minify(content, {
-          collapseWhitespace: true,
-          removeComments: true,
-          ignoreCustomFragments: [/<h1\b[^>]*>[\s\S]*?<\/h1>/]
+  eleventyConfig.on("afterBuild", async () => {
+    const outputDir = eleventyConfig.dir.output ?? "_site";
+
+    const ignoredDirs = await fastGlob(["**/_unused", "**/_unbuilt"], {
+      cwd: outputDir,
+      onlyDirectories: true,
+      absolute: true,
+    });
+
+    await Promise.all(
+      ignoredDirs.map(async (filePath) => {
+        console.log(`Removing ignored directory: ${filePath}`);
+        await fs.rm(filePath, {
+          recursive: true,
+          force: true
         });
-      } catch (err) {
-        console.error("HTML minification error:", err);
-        return content;
-      }
-    }
-    return content;
-  });
+      })
+    );
 
-  eleventyConfig.on("afterBuild", () => {
-    const outputDir = "_site";
+    const filesToMinify = await fastGlob(["**/*.html", "**/*.css"], {
+      cwd: outputDir,
+      absolute: true,
+    });
 
-    function removeIgnoredDirectories(dir) {
-      fs.readdirSync(dir).forEach((file) => {
-        const filePath = path.join(dir, file);
-        const stat = fs.statSync(filePath);
-        if (stat.isDirectory()) {
-          if (file === "_unused" || file === "_unbuilt") {
-            console.log(`Removing ignored directory: ${filePath}`);
-            fs.rmSync(filePath, { recursive: true, force: true });
-          } else {
-            removeIgnoredDirectories(filePath);
-          }
-        }
-      });
-    }
+    await Promise.all(
+      filesToMinify.map(async (filePath) => {
+        try {
+          const fileContent = await fs.readFile(filePath, "utf8");
+          let minifiedContent;
 
-    removeIgnoredDirectories(outputDir);
-
-    function traverseDirectory(dir) {
-      fs.readdirSync(dir).forEach((file) => {
-        const filePath = path.join(dir, file);
-        const stat = fs.statSync(filePath);
-        if (stat.isDirectory()) {
-          traverseDirectory(filePath);
-        } else if (filePath.endsWith(".css")) {
-          try {
-            const cssContent = fs.readFileSync(filePath, "utf8");
-            const minified = require("esbuild").transformSync(cssContent, {
-              loader: "css",
-              minify: true
+          if (filePath.endsWith(".html")) {
+            minifiedContent = await htmlmin(fileContent, {
+              collapseWhitespace: true,
+              removeComments: true,
+              ignoreCustomFragments: [/<h1\b[^>]*>[\s\S]*?<\/h1>/],
             });
-            fs.writeFileSync(filePath, minified.code, "utf8");
+          } else {
+            const result = await esbuild.transform(fileContent, {
+              loader: "css",
+              minify: true,
+            });
+            minifiedContent = result.code;
             console.log(`Minified CSS: ${filePath}`);
-          } catch (error) {
-            console.error(`Error minifying ${filePath}:`, error);
           }
+
+          await fs.writeFile(filePath, minifiedContent);
+        } catch (error) {
+          console.error(`Error processing ${filePath}:`, error);
         }
-      });
-    }
-    traverseDirectory(outputDir);
+      })
+    );
   });
 
   return {
@@ -85,7 +78,7 @@ module.exports = function (eleventyConfig) {
       input: "src",
       output: "_site",
       includes: "_includes",
-      data: "_data"
-    }
+      data: "_data",
+    },
   };
 };
