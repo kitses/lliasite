@@ -38,7 +38,7 @@ module.exports = (eleventyConfig) => {
       })
     );
 
-    const filesToMinify = await fastGlob(["**/*.html", "**/*.css"], {
+    const filesToMinify = await fastGlob(["**/*.html", "**/*.css", "**/*.js"], {
       cwd: outputDir,
       absolute: true,
     });
@@ -55,13 +55,20 @@ module.exports = (eleventyConfig) => {
               removeComments: true,
               ignoreCustomFragments: [/<h1\b[^>]*>[\s\S]*?<\/h1>/],
             });
-          } else {
+          } else if (filePath.endsWith(".css")) {
             const result = await esbuild.transform(fileContent, {
               loader: "css",
               minify: true,
             });
             minifiedContent = result.code;
             console.log(`Minified CSS: ${filePath}`);
+          } else if (filePath.endsWith(".js")) {
+            const result = await esbuild.transform(fileContent, {
+              loader: "js",
+              minify: true,
+            });
+            minifiedContent = result.code;
+            console.log(`Minified JS: ${filePath}`);
           }
 
           await fs.writeFile(filePath, minifiedContent);
