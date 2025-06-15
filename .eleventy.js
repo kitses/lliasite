@@ -53,6 +53,13 @@ module.exports = (eleventyConfig) => {
             minifiedContent = await htmlmin(fileContent, {
               collapseWhitespace: true,
               removeComments: true,
+              removeOptionalTags: true,
+              removeRedundantAttributes: true,
+              removeScriptTypeAttributes: true,
+              removeTagWhitespace: true,
+              useShortDoctype: true,
+              minifyCSS: true,
+              minifyJS: true,
               ignoreCustomFragments: [/<h1\b[^>]*>[\s\S]*?<\/h1>/],
             });
           } else if (filePath.endsWith(".css")) {
