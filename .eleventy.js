@@ -60,7 +60,7 @@ module.exports = (eleventyConfig) => {
               useShortDoctype: true,
               minifyCSS: true,
               minifyJS: true,
-              ignoreCustomFragments: [/<h1\b[^>]*>[\s\S]*?<\/h1>/],
+              ignoreCustomFragments: [/\s+::\s+/, /<\/mono>\s/,],
             });
           } else if (filePath.endsWith(".css")) {
             const result = await esbuild.transform(fileContent, {
