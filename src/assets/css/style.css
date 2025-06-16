@@ -250,6 +250,7 @@ links a:hover {
 * {
   transition: .125s cubic-bezier(.19, 1, .22, 1);
   scrollbar-width: thin;
+  scrollbar-color: #8f869d #000;
 }
 
 #mrrplinks img {
