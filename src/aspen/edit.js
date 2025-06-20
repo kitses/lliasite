@@ -1,1 +1,50 @@
-document.addEventListener("DOMContentLoaded",()=>{let s=()=>window.getSelection?.().toString()||document.selection?.createRange().text||"",n=(e,t="")=>{let c=window.getSelection(),o=c.getRangeAt(0),r=o.commonAncestorContainer.parentNode;if(r.closest(".content")&&!r.closest(".directoryCont")){if(e==="cut"&&c.toString())o.deleteContents(),o.insertNode(document.createTextNode(""));else if(e==="paste")o.deleteContents(),o.insertNode(document.createTextNode(t))}},a=()=>n("cut"),i=async()=>{try{let e=await navigator.clipboard.readText();n("paste",e)}catch(e){console.error("Failed to read clipboard contents: ",e)}},d=async()=>{let e=s();if(e)try{await navigator.clipboard.writeText(e)}catch(t){console.error("Failed to write to clipboard: ",t)}};document.addEventListener("keydown",(e)=>{let{key:t}=e;if(["1","2","3"].includes(t))e.preventDefault();if(t==="1")a();else if(t==="2")i();else if(t==="3")d()})});
+document.addEventListener('DOMContentLoaded', () => {
+  const getSelectedText = () => window.getSelection?.().toString() ||
+      document.selection?.createRange().text || '';
+  const modifyText = (action, text = '') => {
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+    const parent = range.commonAncestorContainer.parentNode;
+    if (parent.closest('.content') && !parent.closest('.directoryCont')) {
+      if (action === 'cut' && selection.toString()) {
+        range.deleteContents();
+        range.insertNode(document.createTextNode(''))
+      } else if (action === 'paste') {
+        range.deleteContents();
+        range.insertNode(document.createTextNode(text))
+      }
+    }
+  };
+  const cutText = () => modifyText('cut');
+  const pasteText = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      modifyText('paste', text)
+    } catch (err) {
+      console.error('Failed to read clipboard contents: ', err)
+    }
+  };
+  const snarfText = async () => {
+    const selectedText = getSelectedText();
+    if (selectedText) {
+      try {
+        await navigator.clipboard.writeText(selectedText)
+      } catch (err) {
+        console.error('Failed to write to clipboard: ', err)
+      }
+    }
+  };
+  document.addEventListener('keydown', (event) => {
+    const {key} = event;
+    if (['1', '2', '3'].includes(key)) {
+      event.preventDefault()
+    }
+    if (key === '1') {
+      cutText()
+    } else if (key === '2') {
+      pasteText()
+    } else if (key === '3') {
+      snarfText()
+    }
+  })
+});

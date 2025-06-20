@@ -1,1 +1,36 @@
-document.addEventListener("DOMContentLoaded",(()=>{const e=document.createElement("div");e.classList.add("tooltip"),document.body.appendChild(e);document.addEventListener("mouseover",(a=>{const d=a.target;if(d.hasAttribute("tada")){const n=d.getAttribute("tada");e.innerHTML=n.replace(/\*\*\*([^*]+)\*\*\*/g,"<b><i>$1</i></b>").replace(/\*\*([^*]+)\*\*/g,"<b>$1</b>").replace(/\*([^*]+)\*/g,"<i>$1</i>").replace(/\!\[([^]]+)\]\(([^)]+)\)/g,'<img src="$2" alt="$1">').replace(/\{lb\}/g,"<br>"),e.style.display="block",t(a)}})),document.addEventListener("mousemove",(a=>{"block"===e.style.display&&t(a)})),document.addEventListener("mouseout",(t=>{t.target.hasAttribute("tada")&&(e.style.display="none")}));const t=t=>{e.style.left=`${t.pageX+15}px`,e.style.top=`${t.pageY+15}px`}}));
+document.addEventListener('DOMContentLoaded', () => {
+  // Create and append the tooltip element once
+  const tooltip = document.createElement('div');
+  tooltip.classList.add('tooltip');
+  document.body.appendChild(tooltip);
+
+  // Event delegation for elements with the "tada" attribute
+  document.addEventListener('mouseover', (event) => {
+    const target = event.target;
+    if (target.hasAttribute('tada')) {
+      const tooltipText = target.getAttribute('tada');
+      tooltip.innerHTML = tooltipText;
+      tooltip.style.display = 'block';
+      updateTooltipPosition(event);
+    }
+  });
+
+  document.addEventListener('mousemove', (event) => {
+    if (tooltip.style.display === 'block') {
+      updateTooltipPosition(event);
+    }
+  });
+
+  document.addEventListener('mouseout', (event) => {
+    if (event.target.hasAttribute('tada')) {
+      tooltip.style.display = 'none';
+    }
+  });
+
+  // Function to update the tooltip position based on cursor movement
+  const updateTooltipPosition = (event) => {
+    const offset = 15;  // Distance from the cursor
+    tooltip.style.left = `${event.pageX + offset}px`;
+    tooltip.style.top = `${event.pageY + offset}px`;
+  };
+});
