@@ -1,7 +1,7 @@
-const fs = require('fs/promises');
-const fastGlob = require('fast-glob');
-const htmlmin = require('html-minifier-terser').minify;
-const esbuild = require('esbuild');
+import * as esbuild from 'esbuild';
+import fastGlob from 'fast-glob';
+import fs from 'fs/promises';
+import {minify as htmlmin} from 'html-minifier-terser';
 
 const assetsToPass = [
   'src/assets/css',
@@ -16,7 +16,7 @@ const assetsToPass = [
   'src/sven',
 ];
 
-module.exports = (eleventyConfig) => {
+export default (eleventyConfig) => {
   assetsToPass.forEach((dir) => eleventyConfig.addPassthroughCopy(dir));
 
   eleventyConfig.on('afterBuild', async () => {
