@@ -1,0 +1,6 @@
+---
+Language: JavaScript
+BasedOnStyle: Microsoft
+JavaScriptQuotes: Single
+IndentWidth: 2
+BreakBeforeBraces: Attach
