@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // function to update the tooltip position based on cursor movement
   const updateTooltipPosition = (event) => {
-    const offset = 15;  // distance from cursor
+    const offset = 15; // distance from cursor
     tooltip.style.left = `${event.pageX + offset}px`;
     tooltip.style.top = `${event.pageY + offset}px`;
   };

@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const getSelectedText = () => window.getSelection?.().toString() ||
-      document.selection?.createRange().text || '';
+  const getSelectedText = () => window.getSelection?.().toString() || document.selection?.createRange().text || '';
   const modifyText = (action, text = '') => {
     const selection = window.getSelection();
     const range = selection.getRangeAt(0);
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   document.addEventListener('keydown', (event) => {
     const {key} = event;
-    if (['1', '2', '3'].includes(key)) {
+    if ([ '1', '2', '3' ].includes(key)) {
       event.preventDefault()
     }
     if (key === '1') {
