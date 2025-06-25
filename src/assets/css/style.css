@@ -203,11 +203,6 @@ links {
   font-weight: 700;
 }
 
-links a {
-  text-decoration: none;
-  transition: .25s cubic-bezier(.18, .89, 0, 2.2);
-}
-
 h1#wordmark {
   font-size: 225%;
   letter-spacing: -2px;
@@ -228,6 +223,7 @@ i#blurb {
 }
 
 a {
+  transition: .125s cubic-bezier(.19, 1, .22, 1);
   text-decoration: none;
 }
 
@@ -239,6 +235,12 @@ a:hover {
   transition: .25s cubic-bezier(.25, .5, 0, 1.8);
 }
 
+links a {
+  text-decoration: none;
+  transition: .25s cubic-bezier(.18, .89, 0, 2.2);
+}
+
+
 #wordmark>a:hover {
   letter-spacing: -.75px;
 }
@@ -248,7 +250,6 @@ links a:hover {
 }
 
 * {
-  transition: .125s cubic-bezier(.19, 1, .22, 1);
   scrollbar-width: thin;
   scrollbar-color: #8f869d #000;
 }
