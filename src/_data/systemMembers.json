@@ -27,6 +27,7 @@
   },
   {
     "url": "https://e2l2.pages.dev/",
-    "displayName": "e2l2"
+    "displayName": "e2l2",
+    "dormant": true
   }
 ]
